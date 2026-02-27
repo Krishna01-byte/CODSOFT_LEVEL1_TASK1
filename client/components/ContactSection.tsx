@@ -55,16 +55,23 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-gradient-to-br from-white via-blue-50 to-white relative overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400 opacity-5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-400 opacity-5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Get In <span className="text-primary">Touch</span>
+        <div className="text-center mb-20 fade-in">
+          <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+            Get In Touch
+          </div>
+          <h2 className="text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+            Let's Connect &amp; <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Collaborate</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have questions? We would love to hear from you. Send us a message
-            and we will respond as soon as possible.
+            Have a question? We'd love to hear from you. Send us a message and
+            we'll respond as soon as possible. Your success is our priority.
           </p>
         </div>
 
@@ -72,44 +79,50 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div className="space-y-8 fade-in" style={{ animationDelay: "0.1s" }}>
             {/* Email */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100">
-                  <Mail className="text-primary" size={24} />
+            <div className="group cursor-pointer">
+              <div className="flex gap-4 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 group-hover:border-blue-400 group-hover:shadow-lg transition-all">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 group-hover:scale-110 transition-transform">
+                    <Mail className="text-white" size={28} />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Email</h3>
-                <p className="text-gray-600 mt-1">contact@example.com</p>
-                <p className="text-gray-600">support@example.com</p>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Email</h3>
+                  <p className="text-blue-600 font-medium">contact@example.com</p>
+                  <p className="text-gray-600 text-sm">support@example.com</p>
+                </div>
               </div>
             </div>
 
             {/* Phone */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100">
-                  <Phone className="text-primary" size={24} />
+            <div className="group cursor-pointer">
+              <div className="flex gap-4 p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 group-hover:scale-110 transition-transform">
+                    <Phone className="text-white" size={28} />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
-                <p className="text-gray-600 mt-1">+1 (555) 123-4567</p>
-                <p className="text-gray-600">Mon-Fri, 9am-6pm EST</p>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Phone</h3>
+                  <p className="text-green-600 font-medium">+1 (555) 123-4567</p>
+                  <p className="text-gray-600 text-sm">Mon-Fri, 9am-6pm EST</p>
+                </div>
               </div>
             </div>
 
             {/* Address */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100">
-                  <MapPin className="text-primary" size={24} />
+            <div className="group cursor-pointer">
+              <div className="flex gap-4 p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 group-hover:border-purple-400 group-hover:shadow-lg transition-all">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 group-hover:scale-110 transition-transform">
+                    <MapPin className="text-white" size={28} />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Address</h3>
-                <p className="text-gray-600 mt-1">123 Business Street</p>
-                <p className="text-gray-600">New York, NY 10001</p>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Address</h3>
+                  <p className="text-purple-600 font-medium">123 Business Street</p>
+                  <p className="text-gray-600 text-sm">New York, NY 10001</p>
+                </div>
               </div>
             </div>
           </div>
@@ -117,7 +130,7 @@ export default function ContactSection() {
           {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
-            className="lg:col-span-2 bg-gray-50 rounded-xl p-8 fade-in"
+            className="lg:col-span-2 bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 rounded-3xl p-10 fade-in shadow-xl"
             style={{ animationDelay: "0.2s" }}
           >
             <div className="space-y-6">
@@ -125,7 +138,7 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
+                  className="block text-sm font-bold text-gray-900 mb-3"
                 >
                   Full Name
                 </label>
@@ -136,7 +149,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all placeholder-gray-400 hover:border-gray-300"
                   placeholder="John Doe"
                 />
               </div>
@@ -145,7 +158,7 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
+                  className="block text-sm font-bold text-gray-900 mb-3"
                 >
                   Email Address
                 </label>
@@ -156,7 +169,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all placeholder-gray-400 hover:border-gray-300"
                   placeholder="john@example.com"
                 />
               </div>
@@ -165,7 +178,7 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
+                  className="block text-sm font-bold text-gray-900 mb-3"
                 >
                   Message
                 </label>
@@ -176,22 +189,22 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none placeholder-gray-400 hover:border-gray-300"
                   placeholder="Your message here..."
                 ></textarea>
               </div>
 
               {/* Success Message */}
               {submitMessage && (
-                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-                  {submitMessage}
+                <div className="bg-green-50 border-2 border-green-300 text-green-700 px-6 py-4 rounded-xl font-medium animate-pulse">
+                  ✓ {submitMessage}
                 </div>
               )}
 
               {/* Error Message */}
               {submitError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                  {submitError}
+                <div className="bg-red-50 border-2 border-red-300 text-red-700 px-6 py-4 rounded-xl font-medium">
+                  ✕ {submitError}
                 </div>
               )}
 
@@ -199,9 +212,22 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : (
+                  <span className="flex items-center justify-center gap-2">
+                    Send Message
+                    <span>→</span>
+                  </span>
+                )}
               </button>
             </div>
           </form>

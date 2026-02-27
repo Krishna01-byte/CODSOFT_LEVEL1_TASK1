@@ -1,66 +1,120 @@
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, TrendingUp, Award, Zap } from "lucide-react";
+
+const features = [
+  { icon: Award, text: "Industry-leading expertise and innovation" },
+  { icon: TrendingUp, text: "Customer-centric approach to every project" },
+  { icon: Zap, text: "Cutting-edge technology and tools" },
+  { icon: CheckCircle, text: "Transparent communication and support" },
+];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Image */}
+    <section id="about" className="py-24 bg-white relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200 opacity-5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200 opacity-5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Enhanced Image */}
           <div className="fade-in">
             <div className="relative">
-              {/* Decorative background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-blue-600 rounded-2xl opacity-10 blur-2xl"></div>
+              {/* Background Glow */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl opacity-10 blur-3xl group-hover:opacity-20 transition-opacity"></div>
 
-              {/* Image placeholder with gradient */}
-              <div className="relative bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl h-96 flex items-center justify-center">
-                <svg
-                  className="w-32 h-32 text-primary opacity-50"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
-                </svg>
+              {/* Main Image Container */}
+              <div className="relative bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl h-96 flex items-center justify-center border border-blue-200 overflow-hidden group">
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.2)_25%,rgba(59,130,246,0.2)_50%,transparent_50%,transparent_75%,rgba(59,130,246,0.2)_75%,rgba(59,130,246,0.2))] bg-[length:40px_40px] animate-[slide_20s_linear_infinite]"></div>
+                </div>
+
+                {/* Placeholder Icon */}
+                <div className="relative z-10">
+                  <svg
+                    className="w-40 h-40 text-blue-400 opacity-80"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Floating Stats Cards */}
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 max-w-xs border border-gray-100">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">✓</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Trusted by</p>
+                    <p className="text-2xl font-bold text-gray-900">10K+</p>
+                    <p className="text-xs text-gray-600">happy clients worldwide</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Text */}
+          {/* Right Column - Enhanced Text */}
           <div className="fade-in" style={{ animationDelay: "0.2s" }}>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Why Choose <span className="text-primary">Us?</span>
-            </h2>
-
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              We are committed to delivering excellence in everything we do. With
-              years of experience and a team of dedicated professionals, we
-              provide solutions that truly make a difference.
-            </p>
-
-            {/* Features List */}
-            <div className="space-y-4">
-              {[
-                "Industry-leading expertise and innovation",
-                "Customer-centric approach to every project",
-                "Cutting-edge technology and tools",
-                "Transparent communication and support",
-              ].map((feature, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <CheckCircle className="text-primary flex-shrink-0 mt-1" size={24} />
-                  <span className="text-gray-700 text-lg">{feature}</span>
-                </div>
-              ))}
+            <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+              About Our Company
             </div>
 
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-2 gap-8">
-              <div>
-                <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-gray-600">Team Members</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">15+</div>
-                <div className="text-gray-600">Years Experience</div>
-              </div>
+            <h2 className="text-5xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight">
+              Why Choose
+              <span className="block bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                Us?
+              </span>
+            </h2>
+
+            <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+              We are committed to delivering excellence in everything we do. With
+              years of experience and a team of dedicated professionals, we
+              provide solutions that truly make a difference in your business.
+            </p>
+
+            {/* Features List - Enhanced */}
+            <div className="space-y-5 mb-12">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 group cursor-pointer"
+                  >
+                    <div className="flex-shrink-0 mt-1 p-2 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition-colors">
+                      <Icon className="text-blue-600 flex-shrink-0" size={24} />
+                    </div>
+                    <span className="text-gray-700 text-lg group-hover:text-gray-900 transition-colors font-medium">
+                      {feature.text}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Stats Grid - Enhanced */}
+            <div className="grid grid-cols-2 gap-8">
+              {[
+                { number: "50+", label: "Team Members", icon: "👥" },
+                { number: "15+", label: "Years Experience", icon: "⭐" },
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className="group p-6 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all cursor-pointer"
+                >
+                  <div className="text-2xl mb-2">{stat.icon}</div>
+                  <div className="text-4xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-600 group-hover:text-gray-900 transition-colors">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

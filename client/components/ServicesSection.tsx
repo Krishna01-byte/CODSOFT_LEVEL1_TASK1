@@ -1,4 +1,5 @@
 import { Zap, Shield, Users } from "lucide-react";
+import { useState } from "react";
 
 const services = [
   {
@@ -6,33 +7,48 @@ const services = [
     title: "Lightning Fast",
     description:
       "Experience blazing-fast performance with our optimized infrastructure and proven methodologies.",
+    color: "from-yellow-400 to-orange-500",
+    bgColor: "from-yellow-50 to-orange-50",
   },
   {
     icon: Shield,
     title: "Secure & Reliable",
     description:
       "Enterprise-grade security and 99.9% uptime guarantee to keep your business protected.",
+    color: "from-green-400 to-emerald-500",
+    bgColor: "from-green-50 to-emerald-50",
   },
   {
     icon: Users,
     title: "Expert Support",
     description:
       "Dedicated team of professionals ready to help you succeed every step of the way.",
+    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-blue-50 to-cyan-50",
   },
 ];
 
 export default function ServicesSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 relative overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 opacity-5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500 opacity-5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Our <span className="text-primary">Services</span>
+        <div className="text-center mb-20 fade-in">
+          <div className="inline-block mb-4 px-4 py-2 bg-blue-500/20 border border-blue-400/30 text-blue-300 rounded-full text-sm font-semibold backdrop-blur-md">
+            Premium Features
+          </div>
+          <h2 className="text-5xl lg:text-6xl font-black text-white mb-6">
+            Our <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover what we offer to transform your business and achieve your
-            goals.
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Unlock the full potential of your business with our comprehensive
+            suite of cutting-edge solutions designed for success.
           </p>
         </div>
 
@@ -43,27 +59,44 @@ export default function ServicesSection() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-md p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fade-in"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="group relative fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Icon Container */}
-                <div className="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                  <Icon className="text-primary" size={32} />
+                {/* Gradient Border */}
+                <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-20 rounded-2xl blur-xl transition-opacity duration-500`}></div>
+
+                {/* Card */}
+                <div className={`relative bg-gradient-to-br ${service.bgColor} border border-gray-700 group-hover:border-gray-500 rounded-2xl p-8 transition-all duration-500 transform group-hover:scale-105 group-hover:shadow-2xl`}>
+                  {/* Icon Container with Gradient */}
+                  <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${service.color} p-0.5 mb-8 group-hover:scale-110 transition-transform duration-500`}>
+                    <div className="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center">
+                      <Icon className="text-white" size={40} />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-gray-900 group-hover:to-gray-900 transition-all">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-8 group-hover:text-gray-700 transition-colors">
+                    {service.description}
+                  </p>
+
+                  {/* Learn More Link */}
+                  <button className={`font-semibold hover:gap-3 inline-flex items-center gap-2 transition-all duration-300 bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
+                    Discover More
+                    <span className="group-hover:translate-x-2 transition-transform">→</span>
+                  </button>
+
+                  {/* Animated Border on Hover */}
+                  {hoveredIndex === index && (
+                    <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-clip-padding pointer-events-none" style={{
+                      borderImage: `linear-gradient(to right, var(--tw-gradient-stops)) 1`,
+                    }}></div>
+                  )}
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                {/* Learn More Link */}
-                <button className="text-primary font-semibold hover:text-blue-700 transition-colors inline-flex items-center gap-2">
-                  Learn More
-                  <span>→</span>
-                </button>
               </div>
             );
           })}
