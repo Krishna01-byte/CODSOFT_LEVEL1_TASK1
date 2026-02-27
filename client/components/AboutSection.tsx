@@ -23,22 +23,14 @@ export default function AboutSection() {
               <div className="absolute -inset-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl opacity-10 blur-3xl group-hover:opacity-20 transition-opacity"></div>
 
               {/* Main Image Container */}
-              <div className="relative bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl h-96 flex items-center justify-center border border-blue-200 overflow-hidden group">
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.2)_25%,rgba(59,130,246,0.2)_50%,transparent_50%,transparent_75%,rgba(59,130,246,0.2)_75%,rgba(59,130,246,0.2))] bg-[length:40px_40px] animate-[slide_20s_linear_infinite]"></div>
-                </div>
-
-                {/* Placeholder Icon */}
-                <div className="relative z-10">
-                  <svg
-                    className="w-40 h-40 text-blue-400 opacity-80"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
-                  </svg>
-                </div>
+              <div className="relative rounded-3xl h-96 border-2 border-blue-200 overflow-hidden group shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/6693664/pexels-photo-6693664.jpeg"
+                  alt="Professional team collaborating in modern office"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
               {/* Floating Stats Cards */}

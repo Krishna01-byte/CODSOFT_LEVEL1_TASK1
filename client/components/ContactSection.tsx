@@ -75,7 +75,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Contact Info */}
           <div className="space-y-8 fade-in" style={{ animationDelay: "0.1s" }}>
             {/* Email */}
@@ -127,12 +127,14 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <form
-            onSubmit={handleSubmit}
-            className="lg:col-span-2 bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 rounded-3xl p-10 fade-in shadow-xl"
-            style={{ animationDelay: "0.2s" }}
-          >
+          {/* Contact Form + Image */}
+          <div className="lg:col-span-2 fade-in" style={{ animationDelay: "0.2s" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+              {/* Form */}
+              <form
+                onSubmit={handleSubmit}
+                className="bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 rounded-3xl p-10 shadow-xl"
+              >
             <div className="space-y-6">
               {/* Name Field */}
               <div>
@@ -230,7 +232,26 @@ export default function ContactSection() {
                 )}
               </button>
             </div>
-          </form>
+              </form>
+
+              {/* Image */}
+              <div className="hidden md:block relative rounded-3xl overflow-hidden shadow-xl border-2 border-blue-200 group">
+                <img
+                  src="https://images.pexels.com/photos/8177853/pexels-photo-8177853.jpeg"
+                  alt="Professional support team"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Badge */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20">
+                  <p className="font-bold text-gray-900 mb-1">24/7 Support</p>
+                  <p className="text-sm text-gray-600">We're here to help you succeed</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

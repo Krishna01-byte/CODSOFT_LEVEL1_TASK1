@@ -9,6 +9,7 @@ const services = [
       "Experience blazing-fast performance with our optimized infrastructure and proven methodologies.",
     color: "from-yellow-400 to-orange-500",
     bgColor: "from-yellow-50 to-orange-50",
+    image: "https://images.pexels.com/photos/9797645/pexels-photo-9797645.jpeg",
   },
   {
     icon: Shield,
@@ -17,6 +18,7 @@ const services = [
       "Enterprise-grade security and 99.9% uptime guarantee to keep your business protected.",
     color: "from-green-400 to-emerald-500",
     bgColor: "from-green-50 to-emerald-50",
+    image: "https://images.pexels.com/photos/4808267/pexels-photo-4808267.jpeg",
   },
   {
     icon: Users,
@@ -25,6 +27,7 @@ const services = [
       "Dedicated team of professionals ready to help you succeed every step of the way.",
     color: "from-blue-400 to-cyan-500",
     bgColor: "from-blue-50 to-cyan-50",
+    image: "https://images.pexels.com/photos/8867475/pexels-photo-8867475.jpeg",
   },
 ];
 
@@ -68,27 +71,40 @@ export default function ServicesSection() {
                 <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-20 rounded-2xl blur-xl transition-opacity duration-500`}></div>
 
                 {/* Card */}
-                <div className={`relative bg-gradient-to-br ${service.bgColor} border border-gray-700 group-hover:border-gray-500 rounded-2xl p-8 transition-all duration-500 transform group-hover:scale-105 group-hover:shadow-2xl`}>
-                  {/* Icon Container with Gradient */}
-                  <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${service.color} p-0.5 mb-8 group-hover:scale-110 transition-transform duration-500`}>
-                    <div className="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center">
-                      <Icon className="text-white" size={40} />
-                    </div>
+                <div className={`relative bg-gradient-to-br ${service.bgColor} border border-gray-700 group-hover:border-gray-500 rounded-2xl overflow-hidden transition-all duration-500 transform group-hover:scale-105 group-hover:shadow-2xl`}>
+                  {/* Image Container */}
+                  <div className="relative h-48 overflow-hidden bg-gray-200">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Image Overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-gray-900 group-hover:to-gray-900 transition-all">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-8 group-hover:text-gray-700 transition-colors">
-                    {service.description}
-                  </p>
+                  <div className="p-8">
+                    {/* Icon Container with Gradient */}
+                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} p-0.5 mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                      <div className="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center">
+                        <Icon className="text-white" size={32} />
+                      </div>
+                    </div>
 
-                  {/* Learn More Link */}
-                  <button className={`font-semibold hover:gap-3 inline-flex items-center gap-2 transition-all duration-300 bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
-                    Discover More
-                    <span className="group-hover:translate-x-2 transition-transform">→</span>
-                  </button>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700 transition-colors">
+                      {service.description}
+                    </p>
+
+                    {/* Learn More Link */}
+                    <button className={`font-semibold hover:gap-3 inline-flex items-center gap-2 transition-all duration-300 bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
+                      Discover More
+                      <span className="group-hover:translate-x-2 transition-transform">→</span>
+                    </button>
+                  </div>
 
                   {/* Animated Border on Hover */}
                   {hoveredIndex === index && (
